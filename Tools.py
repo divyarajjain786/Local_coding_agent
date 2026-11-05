@@ -57,7 +57,11 @@ def get_struc() -> dict:
     files_list = [f.name for f in dir_path.iterdir() if f.is_file()]
     return {"Files": files_list}
 
-
+@tool
+def continue_conversation() -> str:
+    """Invoke this tool to engage in multi turn conversations and take input from user"""
+    user = input("User: ")
+    return f"User: {user}"
 
 #------------FINAL LIST-------------#
-tools = [file_opener, file_writer, shell_executor, time_fetcher, wait, get_struc]
+tools = [file_opener, file_writer, shell_executor, time_fetcher, wait, get_struc, continue_conversation]
