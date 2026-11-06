@@ -94,4 +94,4 @@ if __name__ == "__main__":
     for event in compiled.stream(initial_state, config=config):
         for value in event.values():
             if "messages" in value:
-                print("Response:", value["messages"][-1].content)
+                print("Response:", value["messages"][-1].content) 
