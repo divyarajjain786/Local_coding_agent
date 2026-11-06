@@ -26,6 +26,14 @@ def file_writer(file_path: str, content: str) -> str:
         return f"File {file_path} written successfully."
     except Exception as e:
         return f"Error writing file: {str(e)}"
+@tool
+def folder_creator(folder_path: str) -> str:
+    """Creates a new folder in the current directory."""
+    try:
+        Path(folder_path).mkdir(parents=True, exist_ok=True)
+        return f"Folder {folder_path} created successfully."
+    except Exception as e:
+        return f"Error creating folder: {str(e)}"
 
 @tool
 def shell_executor(command: str) -> str:
@@ -64,4 +72,4 @@ def continue_conversation() -> str:
     return f"User: {user}"
 
 #------------FINAL LIST-------------#
-tools = [file_opener, file_writer, shell_executor, time_fetcher, wait, get_struc, continue_conversation]
+tools = [file_opener, file_writer, folder_creator, shell_executor, time_fetcher, wait, get_struc, continue_conversation]
